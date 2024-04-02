@@ -7,32 +7,6 @@
 
 import SwiftUI
 
-@MainActor
-final class SignInEmailViewModel: ObservableObject {
-    
-    @Published var email = ""
-    @Published var password = ""
-    
-    // Incorporate validation instead of just a print out
-    // Can do validation to require a more intense password
-    func signUp() async throws {
-        guard !email.isEmpty, !password.isEmpty else {
-            print("Please enter a valid email address or password.")
-            return
-        }
-        
-            try await AuthenticationManager.shared.createUser(email: email, password: password)
-    }
-    
-    func signIn() async throws {
-        guard !email.isEmpty, !password.isEmpty else {
-            print("Please enter a valid email address or password.")
-            return
-        }
-        
-            try await AuthenticationManager.shared.signInUser(email: email, password: password)
-    }
-}
 struct SignInEmailView: View {
     
     @StateObject private var viewModel = SignInEmailViewModel()
