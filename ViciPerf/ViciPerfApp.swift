@@ -4,7 +4,7 @@
 //
 //  Created by Jason Mesa on 3/7/24.
 //  Developed by Angelica Cervantes, Brent Lin, Francisco Alacaraz, and Jason Mesa thereafter
-//
+// FUNCTIONAL GOOGLE SIGN IN NEED TO IMPLEMENT BRENTS FILES INTO WORKING WRAP
 
 import SwiftUI
 import Firebase
