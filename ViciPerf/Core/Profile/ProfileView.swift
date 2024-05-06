@@ -5,11 +5,12 @@
 //  Created by Jason Mesa on 3/27/24.
 //
 
+ /*
 import SwiftUI
 
 
 @MainActor
-final class ProfileViewModel: ObservableObject {
+final class TabBarViewModel: ObservableObject {
     
     @Published private(set) var user: DBUser? = nil
     
@@ -23,7 +24,7 @@ final class ProfileViewModel: ObservableObject {
 
 struct ProfileView: View {
     
-    @StateObject private var viewModel = ProfileViewModel()
+    @StateObject private var viewModel = TabBarViewModel()
     @Binding var showSignInView: Bool
     
     var body: some View {
@@ -61,3 +62,4 @@ struct ProfileView_Previews: PreviewProvider {
         }
     }
 }
+*/

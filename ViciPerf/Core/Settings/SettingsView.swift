@@ -15,36 +15,45 @@ struct SettingsView: View {
     @Binding var showSignInView: Bool
     
     var body: some View {
-        List {
-            Button("Sign out") {
-                Task {
-                    do {
-                        try viewModel.signOut()
-                        showSignInView = true
-                    } catch {
-                        //need to apply specific error code this is just generic
-                        print(error)
+        VStack {
+            HeaderView()
+            List {
+                Button("Sign out") {
+                    Task {
+                        do {
+                            try viewModel.signOut()
+                            showSignInView = true
+                        } catch {
+                            //need to apply specific error code this is just generic
+                            print(error)
+                        }
                     }
                 }
-            }
-            //should generate a pop up confirmation screen
-            Button(role: .destructive) {
-                Task {
-                    do {
-                        try await viewModel.deleteAccount()
-                        showSignInView = true
-                    } catch {
-                        print(error)
+                //should generate a pop up confirmation screen
+                Button(role: .destructive) {
+                    Task {
+                        do {
+                            try await viewModel.deleteAccount()
+                            showSignInView = true
+                        } catch {
+                            print(error)
+                        }
                     }
+                } label: {
+                    Text("Delete account")
                 }
-            } label: {
-                Text("Delete account")
+                if viewModel.authProviders.contains(.email) {
+                    emailSection
+                }
+                
             }
-            
-            emailSection
+            .onAppear {
+                viewModel.loadAuthProviders()
+            }
+            .navigationBarTitle("Settings")
         }
-        .navigationBarTitle("Settings")
     }
+    
 }
 
 struct SettingsView_Previews: PreviewProvider {

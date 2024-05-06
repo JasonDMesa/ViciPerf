@@ -6,7 +6,7 @@
 //
 
 import Foundation
-final class AuthenticationViewModel: ObservableObject {
+//final class AuthenticationViewModel: ObservableObject {
     
     
     
@@ -17,4 +17,4 @@ final class AuthenticationViewModel: ObservableObject {
         try await UserManager.shared.createNewUser(auth: authDataResult)
     }
     */
-}
+//}

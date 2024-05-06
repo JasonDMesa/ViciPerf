@@ -7,11 +7,11 @@
 
 import SwiftUI
 struct TabBar: View {
-    
+   
     @State private var selectedTab = "home"
     @StateObject private var viewModel = SettingsViewModel()
     @Binding var showSignInView: Bool
-    
+        
     var body: some View {
                 VStack (spacing: 0) {
                     switch selectedTab {
@@ -20,9 +20,9 @@ struct TabBar: View {
                     case "profile":
                         AccountView()
                    case "settings":
-                        SettingsView(showSignInView: .constant(false))
+                        SettingsView(showSignInView: $showSignInView)
                     default:
-                        EmptyView()
+                        ContentView()
                     }
                     Divider()
                     HStack {
